@@ -1,0 +1,150 @@
+body{
+    font-family: 'Lato', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+h2{
+    padding:5px;
+    font-weight:100;
+    height: 30px;
+    text-transform: capitalize;
+}
+h2.below{
+    height: 20px;
+    padding:2px;
+}
+input, form{
+    color: #262627;
+    width: 98%;
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+}
+label{
+    padding-left: 40px;
+}
+button{
+    font-family: 'Lato', sans-serif;
+}
+button.form{
+    width: 49%;
+    font-size: large;
+    font-weight: bold;
+    color: grey;
+    background: #30FF68;
+    border: 1px solid #30FF68;
+    right: 0px;
+    height: 35px;
+}
+.button.form:hover{
+    color: #BEFFD0;
+    background: #00AF2F;
+}
+button.clear{
+    background: #dfdfdf;
+    border: 1px solid #dfdfdf;
+}
+
+button.delete{
+    border: 1px #fefefe;
+    font-size: large;
+    background: none;
+    color: red;
+}
+button.delete:hover{
+    #background: #fddbdf;
+}
+dd.error{
+    font-size:12px;
+}
+.bottom{
+    position:fixed;
+    bottom:5px;
+}
+.boxedSolid{
+    border: 1px solid black;
+}
+.boxedBottom{
+    border-bottom: 1px dashed black;
+    padding: 2px;
+    margin: 2px;
+}
+.boxedTop{
+    border-top: 1px dashed black;
+    padding: 2px;
+    margin: 2px;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.delete{
+    border-left: 1px solid #ece5e6;
+    float: right;
+    padding-bottom: auto;
+    padding-top: auto;
+    height: 100%;
+}
+.error{
+    #font-weight: bold;
+    color: #FD0000;
+}
+.headTitle{
+    text-align: center;
+    padding-left: 180px;
+    font-weight: 500;
+}
+.info{
+    color: #2BD3D3;
+    font-size:12px;
+}
+.labelTitle{
+    font-size: 17px;
+}
+.left{
+    float: left;
+    display: inline-block;
+}
+.miniWide{
+    width: 40%;
+    min-width: 300px;
+}
+.right{
+    float: right;
+    display: inline-block;
+}
+.taskBoard{
+    min-height: 25px;
+    max-height: 320px;
+    padding-top: 10px;
+    overflow-y: auto;
+}
+.taskBox{
+    border-top: 1px solid #ece5e6;
+    display: inline-block;
+    overflow: auto;
+    width: 98%;
+    padding: 2px;
+    margin: 2px;
+}
+.taskBox:hover{
+    background: #e9fbff;
+}
+.taskData{
+    float: left;
+    height: 2px;
+}
+.taskDescription{
+    font-size: 12px;
+    color: #9a9a9a
+}
+.taskDescription:hover{
+    color: #010101
+}
+span.subTitle{
+    color: #999999;
+    position: relative;
+    top: -30px;
+    padding-left: 25px;
+}

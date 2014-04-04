@@ -4,7 +4,10 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+GET     /task                       controllers.Application.getTasks()
+POST    /task                       controllers.Application.newTask()
+POST    /tasks/:id/delete           controllers.Application.deleteTask(id:Long)
 
-GET     /list                          controllers.Application.taskList()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

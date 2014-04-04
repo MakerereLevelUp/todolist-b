@@ -1,50 +1,82 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 376c90ac39bbdfc8da82acdd3dad5a57558b4f55
 import models.Task;
+import org.fest.assertions.Assertions;
 import org.junit.Test;
+import play.data.Form;
+import play.mvc.Content;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-<<<<<<< HEAD
-import static junit.framework.Assert.assertEquals;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-/**
- * Created by levelup on 3/15/14.
- */
-public class TaskTest {
-
-
- 
-=======
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static play.test.Helpers.*;
 
 /**
- * Created by sagas on 3/15/14.
+ * Created by sagas on 3/22/14.
  */
-
 public class TaskTest {
 
     @Test
-    public void doesTaskHaveAName(){
-        String taskName = "NewTask";
-        Task task = new Task(taskName);
-        assertThat(task.getName(), is(taskName));
-    }
-    @Test
-    public void doTasksHaveAnID(){
-        Task task = new Task("SomeTask");
-        boolean taskHasID = (task.getId() > 0);
-        assertThat(taskHasID, is(true));
+    public void testThatTaskIsCreatedWithSuppliedName(){
+        //given
+        String name = "Go to Church";
+        //when
+        Task roleenTask = new Task(name, "Watoto service");
+        //then
+        assertThat(name, is(roleenTask.getName()));
     }
 
     @Test
-    public void canGetTasks(){
-
+    public void testThatTaskIsCreatedWithSuppliedDescription(){
+        //given
+        String description = "Watoto Saturday service";
+        //when
+        Task sagasTask = new Task("Go to Church", description);
+        //then
+        assertThat(description, is(sagasTask.getDescription()));
     }
->>>>>>> 376c90ac39bbdfc8da82acdd3dad5a57558b4f55
 
+    public void makeDummyTasks(){
+        Task firstTask = new Task("Go to Church","");
+        firstTask.save();
+        Task secondTask = new Task("Buy Supper","");
+        secondTask.save();
+    }
+
+    @Test
+    public void canTaskBeSavedInDatabase(){
+        running(fakeApplication(),
+            new Runnable(){
+                public void run(){
+                    makeDummyTasks();
+                    List<Task> allTasks= Task.all();
+                    assertThat(allTasks.size(), is(2));
+                    Task task = Task.findbyId(1);
+                    assertThat(task.getName(), is("Go to Church"));
+                }
+            }
+        );
+    }
+
+    @Test
+    public void canTaskBeDeletedFromBrowser(){
+        running(fakeApplication(),
+            new Runnable(){
+                public void run(){
+                    Task.createTask(new Task("my new task", "so sad she has to go"));
+                    long id = 0;
+                    for(Task task: Task.all())
+                        if(task.getName().equalsIgnoreCase("my new task")){
+                            id = task.id;
+                            break;
+                        }
+                    Task.delete(id);
+                    Content html = views.html.task.render(Task.all(), Form.form(Task.class));
+                    assertFalse(contentAsString(html).contains("my new task"));
+                }
+            }
+        );
+    }
 }
