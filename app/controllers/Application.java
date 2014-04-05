@@ -10,7 +10,7 @@ import views.html.*;
 
 public class Application extends Controller {
 
-    public static TaskManager ourTaskManager = new TaskManager();
+    //public static TaskManager ourTaskManager = new TaskManager();
     static Form<Task> taskForm = Form.form(Task.class);
 
     public static Result index() {
@@ -29,7 +29,7 @@ public class Application extends Controller {
             );
         else{
             Task.createTask(filledForm.get());
-            return redirect(routes.Application.getTasks());
+            return redirect(controllers.routes.Application.getTasks());
         }
     }
 

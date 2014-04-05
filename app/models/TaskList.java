@@ -7,11 +7,11 @@ import java.util.ArrayList;
  */
 
 public class TaskList {
-    private static ArrayList<Task> tasks = new ArrayList<>(0);
+    private static ArrayList<Task> tasks = new ArrayList<Task>(0);
     private static int taskCounter = 0;
 
     public static void addTask(Task task){
-        tasks.add(task.getId(), task);
+        tasks.add((int)task.getId(), task);
     }
 
     public static Task getTask(int id){

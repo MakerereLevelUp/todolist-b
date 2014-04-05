@@ -19,7 +19,7 @@ public class TaskManager {
         ArrayList<String> listOfNames = new ArrayList<String>();
 
         for(int i=0;i<taskList.size();i++){
-            listOfNames.add(taskList.get(i).getTaskName());
+            listOfNames.add(taskList.get(i).getName());
         }
         return listOfNames;
     }

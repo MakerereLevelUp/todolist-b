@@ -20,7 +20,7 @@ public class TaskViewTest {
             new Runnable(){
                 public void run(){
 
-                    List<Task> tasks = new ArrayList<>();
+                    List<Task> tasks = new ArrayList<Task>();
                     Task task1 = new Task("Task1", "This is the first task");
                     task1.save();
                     Task task2 = new Task("Task2", "This is the second task");
