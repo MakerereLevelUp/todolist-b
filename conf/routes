@@ -5,6 +5,8 @@
 # Home page
 GET     /                           controllers.Application.index()
 GET     /task                       controllers.Application.getTasks()
+GET     /api/tasks                   controllers.TasksAPIcontroller.allTasks()
+GET     /api/task                    controllers.TasksAPIcontroller.oneTask()
 POST    /task                       controllers.Application.newTask()
 POST    /tasks/:id/delete           controllers.Application.deleteTask(id:Long)
 
